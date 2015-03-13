@@ -8,14 +8,12 @@ local participants = {
     {'Иван Русинов', 'is_rusinov', 'isrusin', },
     {'Игорь Поляков', 'ranhummer', 'RanHum', },
     {'Борис Нагаев', 'bnagaev', 'starius',
-        'https://github.com/LuaAndC/LuaAndC', 'LuaAndC'},
+        'https://github.com/LuaAndC/LuaAndC'},
     {'Татьяна Шугаева', 'talianash', 'Talianash',
-        'https://github.com/Talianash/GlobinDetector-2015',
-        'GlobinDetector-2015'},
+        'https://github.com/Talianash/GlobinDetector-2015'},
     {'Дарья Диброва', 'udavdasha', 'udavdasha', },
     {'Павел Долгов', '', 'zer0main',
-        'https://github.com/zer0main/battleship',
-        'battleship'},
+        'https://github.com/zer0main/battleship'},
     {'Роман Кудрин', 'explover', 'explover', },
     {'Анастасия Князева', 'nknjasewa', 'nknjasewa', },
     {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', },
@@ -31,7 +29,7 @@ local unpack = unpack or table.unpack
 
 print("||Имя, тесты||Github||Учебный проект||")
 for _, participant in ipairs(participants) do
-    local name, kodomo, github, projecturl, projectname =
+    local name, kodomo, github, projecturl =
         unpack(participant)
     local kodomolink, quizlink
     if kodomo then
@@ -46,7 +44,9 @@ for _, participant in ipairs(participants) do
     local githublink = ('[[https://github.com/%s|%s]]')
         :format(github, github)
     local projectlink = ''
-    if projecturl and projectname then
+    if projecturl then
+        local projectname = projecturl:match(
+            'https://github.com/[^/]+/([^/]+)/?')
         projectlink = ('[[%s|%s]]')
             :format(projecturl, projectname)
     end
