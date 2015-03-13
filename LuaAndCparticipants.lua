@@ -1,3 +1,5 @@
+-- http://kodomo.fbb.msu.ru/wiki/Main/LuaAndC/Participants
+
 local participants = {
     {'Александра Галицина', 'agalicina', 'agalitsyna', },
     {'Анна Колупаева', 'kolupaeva', 'AnyaKol', },
