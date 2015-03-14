@@ -2,7 +2,8 @@
 
 local participants = {
     {'Александра Галицина', 'agalicina', 'agalitsyna', },
-    {'Анна Колупаева', 'kolupaeva', 'AnyaKol', },
+    {'Анна Колупаева', 'kolupaeva', 'AnyaKol', 
+        'https://github.com/AnyaKol/Lua_C'},
     {'Александра Бойко', 'boyko.s', 'boykos', },
     {'Андрей Сигорских', 'crescent8547', 'CarolusRex8547', },
     {'Иван Русинов', 'is_rusinov', 'isrusin', },
