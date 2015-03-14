@@ -19,7 +19,7 @@ local participants = {
     {'Анастасия Князева', 'nknjasewa', 'nknjasewa', },
     {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', },
     {'Наталия Кашко', 'nataliya.kashko', 'natilika', },
-    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996'},
+    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996', 'Деревья. Построение и визуализация.'},
     {'Злобин Александр', 'alexander.zlobin', 'AlxTheEvil'},
     {'Просвиров Кирилл', 'prosvirov.k', 'Akado2009'},
     {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan'},
