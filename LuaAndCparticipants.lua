@@ -1,7 +1,7 @@
 -- http://kodomo.fbb.msu.ru/wiki/Main/LuaAndC/Participants
 
 local participants = {
-    {'Александра Галицина', 'agalicina', 'agalitsyna', },
+    {'Александра Галицына', 'agalicina', 'agalitsyna', 'https://github.com/agalitsyna/LOF.git'},
     {'Анна Колупаева', 'kolupaeva', 'AnyaKol', 
         'https://github.com/AnyaKol/Lua_C'},
     {'Александра Бойко', 'boyko.s', 'boykos', },
