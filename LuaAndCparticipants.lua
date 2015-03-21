@@ -19,7 +19,7 @@ local participants = {
     {'Анастасия Князева', 'nknjasewa', 'nknjasewa', },
     {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', },
     {'Наталия Кашко', 'nataliya.kashko', 'natilika', },
-    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996'},
+    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996', 'https://github.com/dmitrypenzar1996/Trees_Construction_Visualization.git'},
     {'Злобин Александр', 'alexander.zlobin', 'AlxTheEvil'},
     {'Просвиров Кирилл', 'prosvirov.k', 'Akado2009'},
     {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan'},
