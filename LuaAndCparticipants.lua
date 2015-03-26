@@ -4,7 +4,7 @@ local participants = {
     {'Александра Галицына', 'agalicina', 'agalitsyna', 'https://github.com/agalitsyna/LOF.git'},
     {'Анна Колупаева', 'kolupaeva', 'AnyaKol', 
         'https://github.com/AnyaKol/Lua_C'},
-    {'Александра Бойко', 'boyko.s', 'boykos', },
+    {'Александра Бойко', 'boyko.s', 'boykos', 'https://github.com/Talianash/GlobinDetector-2015'},
     {'Андрей Сигорских', 'crescent8547', 'CarolusRex8547',
         'https://github.com/Talianash/GlobinDetector-2015'},
     {'Иван Русинов', 'is_rusinov', 'isrusin', },
