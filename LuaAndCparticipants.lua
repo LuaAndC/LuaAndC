@@ -8,35 +8,56 @@ local participants = {
     {'Андрей Сигорских', 'crescent8547', 'CarolusRex8547',
         'https://github.com/Talianash/GlobinDetector-2015'},
     {'Иван Русинов', 'is_rusinov', 'isrusin', },
-    {'Игорь Поляков', 'ranhummer', 'RanHum', },
+    {'Игорь Поляков', 'ranhummer', 'RanHum', cw=6},
     {'Борис Нагаев', 'bnagaev', 'starius',
         'https://github.com/LuaAndC/LuaAndC'},
     {'Татьяна Шугаева', 'talianash', 'Talianash',
-        'https://github.com/Talianash/GlobinDetector-2015'},
+        'https://github.com/Talianash/GlobinDetector-2015',
+        cw=5},
     {'Дарья Диброва', 'udavdasha', 'udavdasha', },
     {'Павел Долгов', '', 'zer0main',
         'https://github.com/zer0main/battleship'},
-    {'Роман Кудрин', 'explover', 'explover', },
+    {'Роман Кудрин', 'explover', 'explover', cw=4},
     {'Анастасия Князева', 'nknjasewa', 'nknjasewa', },
     {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', },
-    {'Наталия Кашко', 'nataliya.kashko', 'natilika', },
-    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996', 'https://github.com/dmitrypenzar1996/Trees_Construction_Visualization.git'},
+    {'Наталия Кашко', 'nataliya.kashko', 'natilika', cw=5},
+    {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996',
+    'https://github.com/dmitrypenzar1996/Trees_Construction_Visualization.git',
+        cw=9},
     {'Злобин Александр', 'alexander.zlobin', 'AlxTheEvil'},
-    {'Просвиров Кирилл', 'prosvirov.k', 'Akado2009'},
-    {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan'},
-    {'Андрей Демкив', 'andrei-demkiv', 'Andrei-demkiv'},
-    {'Валяева Анна', 'kuararo', 'kirushka'},
-    {'Дианкин Игорь', 'diankin', 'Warrdale'},
+    {'Просвиров Кирилл', 'prosvirov.k', 'Akado2009',
+        cw=11},
+    {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan', cw=5},
+    {'Андрей Демкив', 'andrei-demkiv', 'Andrei-demkiv', cw=4},
+    {'Валяева Анна', 'kuararo', 'kirushka', cw=3},
+    {'Дианкин Игорь', 'diankin', 'Warrdale', cw=3},
     {'Горбатенко Владислав', 'vladislaw_aesc', 'ubiquinone'},
     {'Николаева Дарья', 'chlamidomonas', 'chlamidomonas'},
 }
 
 local unpack = unpack or table.unpack
 
-print("||Имя, тесты||Github||Учебный проект||")
+local function cwMark(cw)
+    if cw >= 5 then
+        return 'отлично'
+    elseif cw == 4 then
+        return 'хорошо'
+    elseif cw == 3 then
+        return 'зачтена'
+    else
+        return ''
+    end
+end
+
+print("||Имя, тесты||Github||Учебный проект||[[/../cw|Контрольная]]||")
 for _, participant in ipairs(participants) do
     local name, kodomo, github, projecturl =
         unpack(participant)
+    local cw = participant.cw
+    local mark = ' '
+    if cw then
+        mark = ("%d б., %s"):format(cw, cwMark(cw))
+    end
     local kodomolink, quizlink
     if kodomo then
         kodomolink = ('[[http://kodomo.fbb.msu.ru/~%s|%s]]')
@@ -49,13 +70,13 @@ for _, participant in ipairs(participants) do
     end
     local githublink = ('[[https://github.com/%s|%s]]')
         :format(github, github)
-    local projectlink = ''
+    local projectlink = ' '
     if projecturl then
         local projectname = projecturl:match(
             'https://github.com/[^/]+/([^/]+)/?')
         projectlink = ('[[%s|%s]]')
             :format(projecturl, projectname)
     end
-    print(("||%s %s||%s||%s||"):format(kodomolink,
-        quizlink, githublink, projectlink))
+    print(("||%s %s||%s||%s||%s||"):format(kodomolink,
+        quizlink, githublink, projectlink, mark))
 end
