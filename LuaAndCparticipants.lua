@@ -49,9 +49,9 @@ local function cwMark(cw)
     end
 end
 
-print("||Имя, тесты||Github||Учебный проект||[[/../cw|Контрольная]]||")
+print("||Имя, тесты||Github||Учебные проекты||[[/../cw|Контрольная]]||")
 for _, participant in ipairs(participants) do
-    local name, kodomo, github, projecturl =
+    local name, kodomo, github, projecturls =
         unpack(participant)
     local cw = participant.cw
     local mark = ' '
@@ -70,13 +70,21 @@ for _, participant in ipairs(participants) do
     end
     local githublink = ('[[https://github.com/%s|%s]]')
         :format(github, github)
-    local projectlink = ' '
-    if projecturl then
-        local projectname = projecturl:match(
-            'https://github.com/[^/]+/([^/]+)/?')
-        projectlink = ('[[%s|%s]]')
-            :format(projecturl, projectname)
+    local projectlinks = {}
+    if projecturls then
+        if type(projecturls) == 'string' then
+            projecturls = {projecturls}
+        end
+        assert(type(projecturls) == 'table')
+        for _, projecturl in ipairs(projecturls) do
+            local projectname = projecturl:match(
+                'https://github.com/[^/]+/([^/]+)/?')
+            local projectlink = ('[[%s|%s]]')
+                :format(projecturl, projectname)
+            table.insert(projectlinks, projectlink)
+        end
     end
     print(("||%s %s||%s||%s||%s||"):format(kodomolink,
-        quizlink, githublink, projectlink, mark))
+        quizlink, githublink,
+        table.concat(projectlinks, ', '), mark))
 end
