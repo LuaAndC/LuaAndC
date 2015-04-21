@@ -84,6 +84,8 @@ for _, participant in ipairs(participants) do
                 :format(projecturl, projectname)
             table.insert(projectlinks, projectlink)
         end
+    else
+        projectlinks = {' '}
     end
     print(("||%s %s||%s||%s||%s||"):format(kodomolink,
         quizlink, githublink,
