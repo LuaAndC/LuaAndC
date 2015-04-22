@@ -1,39 +1,55 @@
 -- http://kodomo.fbb.msu.ru/wiki/Main/LuaAndC/Participants
 
 local participants = {
-    {'Александра Галицына', 'agalicina', 'agalitsyna', 'https://github.com/agalitsyna/LOF.git'},
-    {'Анна Колупаева', 'kolupaeva', 'AnyaKol', 
-        'https://github.com/AnyaKol/Lua_C'},
+    {'Александра Галицына', 'agalicina', 'agalitsyna',
+        'https://github.com/agalitsyna/LOF.git', group=401},
+    {'Анна Колупаева', 'kolupaeva', 'AnyaKol',
+        'https://github.com/AnyaKol/Lua_C', group=102},
     {'Андрей Сигорских', 'crescent8547', 'CarolusRex8547',
-        'https://github.com/Talianash/GlobinDetector-2015'},
+        'https://github.com/Talianash/GlobinDetector-2015',
+        group=101},
     {'Иван Русинов', 'is_rusinov', 'isrusin', },
-    {'Игорь Поляков', 'ranhummer', 'RanHum', cw=6},
+    {'Игорь Поляков', 'ranhummer', 'RanHum', cw=6, group=102},
     {'Борис Нагаев', 'bnagaev', 'starius',
         'https://github.com/LuaAndC/LuaAndC'},
     {'Татьяна Шугаева', 'talianash', 'Talianash',
         'https://github.com/Talianash/GlobinDetector-2015',
-        cw=5},
+        cw=5, group=102},
     {'Дарья Диброва', 'udavdasha', 'udavdasha', },
     {'Павел Долгов', '', 'zer0main',
         {'https://github.com/zer0main/battleship',
          'https://github.com/zer0main/bin_game_mvc'}},
-    {'Роман Кудрин', 'explover', 'explover', cw=4},
-    {'Анастасия Князева', 'nknjasewa', 'nknjasewa', },
-    {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', },
-    {'Наталия Кашко', 'nataliya.kashko', 'natilika', cw=5},
+    {'Роман Кудрин', 'explover', 'explover', cw=4, group=102},
+    {'Анастасия Князева', 'nknjasewa', 'nknjasewa', group=102},
+    {'Иван Ильницкий', 'ilnitsky', 'ilnitsky', group=101},
+    {'Наталия Кашко', 'nataliya.kashko', 'natilika',
+        cw=5, group=102},
     {'Дмитрий Пензар', 'darkvampirewolf', 'dmitrypenzar1996',
     'https://github.com/dmitrypenzar1996/Trees_Construction_Visualization.git',
-        cw=9},
-    {'Злобин Александр', 'alexander.zlobin', 'AlxTheEvil'},
+        cw=9, group=201},
+    {'Злобин Александр', 'alexander.zlobin', 'AlxTheEvil',
+        group=202},
     {'Просвиров Кирилл', 'prosvirov.k', 'Akado2009',
-        cw=11},
-    {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan', cw=5},
-    {'Андрей Демкив', 'andrei-demkiv', 'Andrei-demkiv', cw=4},
-    {'Валяева Анна', 'kuararo', 'kirushka', cw=3},
-    {'Дианкин Игорь', 'diankin', 'Warrdale', cw=3},
-    {'Горбатенко Владислав', 'vladislaw_aesc', 'ubiquinone'},
-    {'Николаева Дарья', 'chlamidomonas', 'chlamidomonas'},
+        cw=11, group=202},
+    {'Михаил Молдован', 'mikemoldovan', 'mikemoldovan',
+        cw=5, group=202},
+    {'Андрей Демкив', 'andrei-demkiv', 'Andrei-demkiv',
+        cw=4, group=202},
+    {'Валяева Анна', 'kuararo', 'kirushka', cw=3, group=201},
+    {'Дианкин Игорь', 'diankin', 'Warrdale', cw=3, group=102},
+    {'Горбатенко Владислав', 'vladislaw_aesc', 'ubiquinone',
+        group=101},
+    {'Николаева Дарья', 'chlamidomonas', 'chlamidomonas',
+        group=101},
 }
+
+-- sort by group and then by name
+table.sort(participants, function(a, b)
+    local a_group = a.group or 999
+    local b_group = b.group or 999
+    return a_group < b_group or
+        (a_group == b_group and a[1] < b[1])
+end)
 
 local unpack = unpack or table.unpack
 
@@ -49,10 +65,11 @@ local function cwMark(cw)
     end
 end
 
-print("||Имя, тесты||Github||Учебные проекты||[[/../cw|Контрольная]]||")
+print("||Группа||Имя, тесты||Github||Учебные проекты||[[/../cw|Контрольная]]||")
 for _, participant in ipairs(participants) do
     local name, kodomo, github, projecturls =
         unpack(participant)
+    local group = participant.group or ' '
     local cw = participant.cw
     local mark = ' '
     if cw then
@@ -86,7 +103,7 @@ for _, participant in ipairs(participants) do
     else
         projectlinks = {' '}
     end
-    print(("||%s %s||%s||%s||%s||"):format(kodomolink,
-        quizlink, githublink,
+    print(("||%s||%s %s||%s||%s||%s||"):format(
+        group, kodomolink, quizlink, githublink,
         table.concat(projectlinks, ', '), mark))
 end
