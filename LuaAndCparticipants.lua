@@ -47,8 +47,10 @@ local participants = {
 table.sort(participants, function(a, b)
     local a_group = a.group or 999
     local b_group = b.group or 999
+    local a_firstname, a_lastname = a[1]:match('(%S+) (%S+)')
+    local b_firstname, b_lastname = b[1]:match('(%S+) (%S+)')
     return a_group < b_group or
-        (a_group == b_group and a[1] < b[1])
+        (a_group == b_group and a_lastname < b_lastname)
 end)
 
 local unpack = unpack or table.unpack
